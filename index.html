@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Phishing Detection Test</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: #f5f7fa;
+      color: #17202a;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    .warning {
+      padding: 20px;
+      margin-bottom: 32px;
+      border: 1px solid #f0b429;
+      border-radius: 10px;
+      background: #fff8e1;
+    }
+
+    .warning strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    h1 {
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #5f6c7b;
+      margin-top: 0;
+    }
+
+    .tests {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .test {
+      display: block;
+      padding: 20px;
+      border: 1px solid #d9dee5;
+      border-radius: 10px;
+      background: white;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .test:hover {
+      border-color: #7b8794;
+    }
+
+    .test h2 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+    }
+
+    .test p {
+      margin: 0;
+      color: #5f6c7b;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid #d9dee5;
+      color: #697586;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="warning">
+      <strong>⚠ Security Research / Test Environment</strong>
+      This website contains intentionally deceptive interface simulations created exclusively for testing a phishing detection system.
+      <br /><br />
+
+      These pages are test fixtures. They are not affiliated with real companies or services, do not provide real authentication, and must not be used with real credentials or personal information.
+    </div>
+
+    <h1>Phishing Detection Test Sites</h1>
+
+    <p class="subtitle">
+      A collection of controlled test pages used to evaluate phishing detection capabilities.
+    </p>
+
+    <section class="tests">
+
+      <a class="test" href="./idhc.html">
+        <h2>FakeBank</h2>
+        <p>Simulated banking login page.</p>
+      </a>
+
+      <!--<a class="test" href="./game-login/">-->
+      <!--  <h2>GameVault</h2>-->
+      <!--  <p>Simulated gaming account login page.</p>-->
+      <!--</a>-->
+
+      <!--<a class="test" href="./social-login/">-->
+      <!--  <h2>SocialHub</h2>-->
+      <!--  <p>Simulated social-media login page.</p>-->
+      <!--</a>-->
+
+      <!--<a class="test" href="./payment-login/">-->
+      <!--  <h2>PayWave</h2>-->
+      <!--  <p>Simulated payment-service login page.</p>-->
+      <!--</a>-->
+    </section>
+
+    <footer>
+      <strong>Testing notice:</strong>
+      These pages are intentionally simulated phishing interfaces used for security testing. Use synthetic credentials and test data only.
+    </footer>
+  </main>
+</body>
+</html>
+
