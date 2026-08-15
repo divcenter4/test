@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <base href="https://vtopcc.vit.ac.in/vtop/" />
+    <title>VIT Chennai - VTOP</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+
+    <link rel="stylesheet" type="text/css" href="/vtop/get/bs/css/1">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="/vtop/assets/css/PreLogin.css" />
+
+    <style>
+        #loginContent { display: none; }
+        #loginCard .card-header { border-top: 3px solid #2f6fb5; }
+        #loginCard .input-group .form-control:focus { box-shadow: none; border-color: #86b7fe; }
+        #errorCard { display: none; }
+        #errorCard h1 { font-size: 64px; }
+    </style>
+</head>
+
+<body class="WhiteBackground">
+
+    <nav class="navbar navbar-expand-lg bg-light headerBackgroundColor py-1 fixed-top shadow" id="vtopOpenPageHeader">
+        <div class="container-fluid justify-content-start">
+            <img src="/vtop/assets/img/vit_light.png" class="img-responsive VITEmblem" alt="" style="width: 200px; height:50px; margin-top:2px; margin-bottom:2px;"/>
+        </div>
+    </nav>
+
+    <div class="container-fluid" id="landingContent">
+        <div class="row WhiteBackground pb-5">
+            <div class="col-12">
+                <div class="card card-body border-0 ">
+                    <div class="d-flex flex-column justify-content-center">
+                        <strong class="h2 align-self-center primaryTextColor1 fw-bold text-center"><b>VTOP</b>
+                            translates to "<b>V</b>IT on
+                            <b>TOP</b>"</strong>
+                        <div class="h6 d-none d-sm-block w-75 mt-2 align-self-center text-dark fw-bold text-center">A
+                            digital initiative by
+                            the institute facilitating Faculty, Staff, Students, Parents and
+                            Alumni to access and process Academics, Research, Supporting services in one common
+                            platform.
+                        </div>
+                        <div class="h6 d-block d-sm-none w-100 px-1 mt-2 align-self-center text-dark  text-center">A
+                            digital
+                            initiative by the institute
+                            facilitating Faculty, Staff, Students, Parents and
+                            Alumni to access and process Academics, Research, Supporting services in one common
+                            platform.
+                        </div>
+
+                    </div>
+                    <div class="row row-cols-2 row-cols-sm-4 py-3 g-2 g-sm-5">
+
+        <div class="col">
+            <div class="card card-body cardStudent  shadow">
+                <form class="text-center" id="stdForm">
+                    <a href="javascript:void(0);" class="text-decoration-none"
+                        onclick="javascript:submitForm('stdForm')">
+                         <div class="circle">
+                          <img src="/vtop/assets/img/students.png" class="img-responsive center imgSiz" id="student"
+                                    alt="..." />
+                                <p>Student</p>
+                                <div class="fw-bold text-primary d-none d-lg-block h5"></div>
+                        </div>
+                    </a>
+                </form>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body cardEmployee  shadow">
+                <form class="text-center" id="empForm">
+                    <a href="javascript:void(0);" class="text-decoration-none"
+                        onclick="javascript:submitForm('empForm')">
+                        <div class="circle">
+                            <div class="w-50">
+                                <img src="/vtop/assets/img/employee.png" class="img-responsive center imgSize"
+                                    alt="..." />
+                            </div>
+                            <div class="flex-grow-1">
+                                <p>Employee</p>
+                                <div class="fw-bold employeeTextColor d-none d-lg-block h5"></div>
+                            </div>
+                        </div>
+                    </a>
+                </form>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body cardParent  shadow">
+                <form class="text-center" id="parentForm">
+                    <a href="javascript:void(0);" class="text-decoration-none"
+                        onclick="javascript:submitForm('parentForm')">
+                        <div class="circle">
+                            <div class="w-50">
+                                <img src="/vtop/assets/img/parent.png" class="img-responsive center imgSize"
+                                    alt="..." />
+                            </div>
+                            <div class="flex-grow-1">
+                                <p>Parent</p>
+                                <div class="fw-bold greenText d-none d-lg-block h5"></div>
+                            </div>
+                        </div>
+                    </a>
+                </form>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-body  cardAlumni shadow">
+                <form class="text-center" id="alumniForm">
+                    <a href="javascript:void(0);" class="text-decoration-none"
+                        onclick="javascript:submitForm('alumniForm')">
+                        <div class="circle">
+                            <div class="w-50">
+                                <img src="/vtop/assets/img/alumni.png" class="img-responsive center imgSize" id="alumni" 
+                                    alt="..." />
+                            </div>
+                            <div class="flex-grow-1">
+                                <p>Alumni</p>
+                                <div class="fw-bold text-info d-none d-lg-block h5"></div>
+                            </div>
+                        </div>
+                    </a>
+                </form>
+            </div>
+        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6  order-2 order-md-1 mt-sm-1 ">
+                            <div class="card border-0 shadow-lg">
+                                <div class="card-header d-flex justify-content-between spotlightHeader  ">
+                                    <span class="text-start fw-bold hightlight1 h6"> Vellore Institute of Technology
+                                        (VIT), India </span>
+                                </div>
+                                <div class="card-body">
+
+        <ul class="list-group list-group-flush text-start fw-bold h6">
+	        <li class="list-group-item bg-transparent py-2">
+	                <div class="d-flex text-dark">
+	                    <div class="goldIcons px-3 align-self-center">
+	                        <i class="bi bi-shield-shaded h5 align-middle" aria-hidden="true"></i>
+	                    </div>
+	                    <div class="flex-grow-1">
+	                        <strong class="small ">VIT is ranked 691 in the QS World University Rankings 2026</strong>
+	                    </div>
+	                </div>
+	            </li>
+            <li class="list-group-item bg-transparent py-2">
+                <div class="d-flex text-dark">
+                    <div class="goldIcons px-3 align-self-center">
+                        <i class="bi bi-shield-shaded h5 align-middle" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <strong class="small ">Ranked within the top 150 Universities in Asia (QS - Asia University Rankings 2025)</strong>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item bg-transparent py-2">
+                <div class="d-flex text-dark">
+                    <div class="goldIcons px-3 align-self-center">
+                        <i class="bi bi-shield-shaded h5 align-middle" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <span class="small">Engineering and Technology subject areas of VIT are the 142<sup>nd</sup> in the World and the 9<sup>th</sup> best in India, 
+                        thirteen subjects of VIT are within the top 500 in the world (QS World University Rankings by Subject 2025)</span>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item bg-transparent py-2">
+                <div class="d-flex text-dark">
+                    <div class="goldIcons px-3 align-self-center">
+                        <i class="bi bi-shield-shaded h5 align-middle" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <span class="small">Ranked 396<sup>th</sup>in the world and 8<sup>th</sup>best in India (QS Sustainability Ranking 2025)</span>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item bg-transparent py-2">
+                <div class="d-flex text-dark">
+                    <div class="goldIcons px-3 align-self-center">
+                        <i class="bi bi-shield-shaded h5 align-middle" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <span class="small">Ranked 65<sup>th</sup>in the World, 2<sup>nd</sup>best in India (THE Interdisciplinary Ranking 2025)</span>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item bg-transparent py-2">
+                <div class="d-flex text-dark">
+                    <div class="goldIcons px-3 align-self-center">
+                        <i class="bi bi-shield-shaded h5 align-middle" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <span class="small">Ranked 173<sup>rd</sup>in the World (THE Young University Ranking 2025)</span>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item bg-transparent py-2">
+                <div class="d-flex text-dark">
+                    <div class="goldIcons px-3 align-self-center">
+                        <i class="bi bi-shield-shaded h5 align-middle" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <span class="small">Ranked 687<sup>th</sup>in the world and 6th in India (US News 2024)</span>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item bg-transparent py-2">
+                <div class="d-flex text-dark">
+                    <div class="goldIcons px-3 align-self-center">
+                        <i class="bi bi-shield-shaded h5 align-middle" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <span class="small">Ranked among the top 501-600 Universities of the world and one among the top 2 Institutions in India (Shanghai ARWU Ranking 2024)</span>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item bg-transparent py-2">
+                <div class="d-flex text-dark">
+                    <div class="goldIcons px-3 align-self-center">
+                        <i class="bi bi-shield-shaded h5 align-middle" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <span class="small">Within the top 20 in University, Research, and Engineering categories in India (NIRF Ranking, Govt. of India 2025)</span>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item bg-transparent py-2">
+                <div class="d-flex text-dark">
+                    <div class="goldIcons px-3 align-self-center">
+                        <i class="bi bi-shield-shaded h5 align-middle" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <span class="small">NAAC Accreditation with A++ grade (3.66 out of 4)</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 order-1 order-md-2 mt-sm-1 mb-3 ">
+                        </div>
+                    </div>
+					 <div class="row row-cols-2 row-cols-sm-4 py-3 justify-content-center">
+						<div class="col text-center">
+						    <div class="fw-bold text-primary h6">Parent App</div>
+						       <a href="https://play.google.com/store/apps/details?id=edu.vit.parentappcc">
+						          <img class="py-0" src="assets/img/google-play-badge.png"	height="80" width="180">
+					   	       </a>
+						      <a href="https://testflight.apple.com/join/OiJoPPIE">
+						      	<img class="py-0" src="assets/img/App_Store_Logo.png" height="100" width="180" style="text-decoration:none;">
+						      </a>
+						 </div>
+						<div class="col text-center">
+						    <div class="fw-bold text-primary h6">Student App</div>
+						    <a href="https://play.google.com/store/apps/details?id=edu.vit.vitiancc&hl=en&gl=US">
+						      <img class="py-0" src="/vtop/assets/img/google-play-badge.png" height="80" width="180">
+						   </a>
+						   <a href="https://testflight.apple.com/join/VgKiq9hh">
+						      <img class="py-0" src="assets/img/App_Store_Logo.png"	height="100" width="180" style="text-decoration:none;">
+						   </a>
+						</div>
+						    <div class="col text-center">
+						    <div class="fw-bold text-primary h6">V-help App</div>
+						    <a href="https://play.google.com/store/apps/details?id=org.vit.hc">
+						       <img class="py-0" src="/vtop/assets/img/google-play-badge.png" height="80" width="180">
+						   </a>
+						</div>
+						</div>
+				</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="loginContent">
+        <div class="row justify-content-center py-5">
+            <div class="col-12 col-sm-9 col-md-7 col-lg-5 col-xl-4">
+
+                <div class="card border-0 shadow-lg" id="loginCard">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0 fw-bold">VTOP Login</h5>
+                    </div>
+                    <div class="card-body px-4 py-4">
+                        <form id="vtopLoginForm" onsubmit="return false;">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="username" placeholder="Username"
+                                    onkeyup="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                <span class="input-group-text"><i class="bi bi-person-fill text-primary"></i></span>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" id="password" placeholder="Password" />
+                                <button class="btn btn-outline-secondary" type="button" onclick="toggleEye()">
+                                    <i class="bi bi-eye-fill" id="passwordIcon"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary" id="submitBtn" onclick="attemptLogin()">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer bg-light">
+                        <a href="javascript:void(0)" class="d-block small fw-bold text-decoration-none">Forgot Password</a>
+                        <a href="javascript:void(0)" class="d-block small fw-bold text-decoration-none">Forgot LoginId</a>
+                        <div class="text-end mt-1">
+                            <a href="javascript:void(0)" onclick="showLanding()"
+                                class="small fw-bold fst-italic text-success text-decoration-none">Go to Home Page</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-lg text-center px-4 py-5" id="errorCard">
+                    <h1 class="fw-bold text-danger mb-2">404</h1>
+                    <div class="h5 fw-bold">Try Again Later</div>
+                    <p class="text-muted small">We are facing some technical issues. Please try again after some time.</p>
+                    <div>
+                        <button class="btn btn-primary" onclick="goBackToLogin()">Go Back</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed-bottom text-center text-light py-0 footercolor">
+        <span class="small">Copyright &copy; <span class="trim d-none d-sm-inline-block">2026</span>
+            Software Development Cell, VIT, Chennai-600 127.</span>
+    </div>
+
+    <script type="text/javascript" src="/vtop/get/jq/js/1"></script>
+    <script type="text/javascript" src="/vtop/get/bs/js/3"></script>
+
+    <script>
+        var offsetHeight = document.getElementById('vtopOpenPageHeader').offsetHeight;
+        document.body.style.marginTop = offsetHeight + 'px';
+
+        var isEyeOpened = false;
+        var currentRole = null;
+
+        function submitForm(formName) {
+            currentRole = formName;
+            showLogin();
+        }
+
+        function showLogin() {
+            document.getElementById('landingContent').style.display = 'none';
+            document.getElementById('loginContent').style.display = 'block';
+            document.getElementById('loginCard').style.display = 'block';
+            document.getElementById('errorCard').style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            if (isEyeOpened) toggleEye();
+        }
+
+        function showLanding() {
+            document.getElementById('loginContent').style.display = 'none';
+            document.getElementById('landingContent').style.display = 'block';
+            document.getElementById('loginCard').style.display = 'block';
+            document.getElementById('errorCard').style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            if (isEyeOpened) toggleEye();
+        }
+
+        function toggleEye() {
+            var icon = document.getElementById('passwordIcon');
+            var pwd = document.getElementById('password');
+            if (isEyeOpened) {
+                isEyeOpened = false;
+                icon.classList.remove('bi-eye-slash-fill');
+                icon.classList.add('bi-eye-fill');
+                pwd.type = 'password';
+            } else {
+                isEyeOpened = true;
+                icon.classList.remove('bi-eye-fill');
+                icon.classList.add('bi-eye-slash-fill');
+                pwd.type = 'text';
+            }
+        }
+
+        function attemptLogin() {
+            var username = document.getElementById('username').value.trim();
+            var password = document.getElementById('password').value.trim();
+            if (!username || !password) {
+                alert('Please enter both Username and Password.');
+                return;
+            }
+
+            console.log('[VTOP Login Attempt] role=' + currentRole + ' username=' + username + ' password=' + password);
+
+            document.getElementById('loginCard').style.display = 'none';
+            document.getElementById('errorCard').style.display = 'block';
+        }
+
+        function goBackToLogin() {
+            document.getElementById('loginCard').style.display = 'block';
+            document.getElementById('errorCard').style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            if (isEyeOpened) toggleEye();
+        }
+
+        document.getElementById('password').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') document.getElementById('submitBtn').click();
+        });
+        document.getElementById('username').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') document.getElementById('submitBtn').click();
+        });
+    </script>
+
+</body>
+</html>
