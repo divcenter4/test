@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in — Shopify</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://shopify-assets.shopifycdn.com/shopify-marketing_assets/static/shopify-favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: rgb(32, 34, 35);
+      background-color: #0a1314;
+      background-image: radial-gradient(ellipse 80% 60% at 50% 0%, #12262a 0%, #0a1314 55%, #060c0d 100%);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      padding: 48px 0 44px;
+    }
+    .shopify-logo {
+      width: 72px;
+      height: 81px;
+      display: block;
+    }
+
+    .card {
+      width: 490px;
+      max-width: calc(100vw - 32px);
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 0 0 1px rgba(0,0,0,.04), 0 10px 40px rgba(0,0,0,.35);
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      color: rgb(26, 28, 29);
+    }
+    .subheading {
+      margin-top: 4px;
+      font-size: 14px;
+      color: rgb(109, 113, 117);
+      font-weight: 400;
+    }
+
+    form { margin-top: 24px; }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgb(32, 34, 35);
+      margin-bottom: 6px;
+    }
+    .field input {
+      width: 100%;
+      height: 40px;
+      padding: 8px 12px;
+      font-size: 14px;
+      font-family: inherit;
+      color: rgb(32, 34, 35);
+      background: #fff;
+      border: 1px solid rgb(140, 145, 150);
+      border-radius: 8px;
+      outline: none;
+      transition: box-shadow .1s ease, border-color .1s ease;
+    }
+    .field input:hover { border-color: rgb(109, 113, 117); }
+    .field input:focus {
+      border-color: rgb(44, 110, 203);
+      box-shadow: 0 0 0 1px rgb(44, 110, 203);
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      height: 44px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color .1s ease, box-shadow .1s ease;
+    }
+
+    .btn-primary {
+      margin-top: 20px;
+      background: rgb(26, 28, 29);
+      color: #fff;
+    }
+    .btn-primary:hover { background: rgb(47, 49, 51); }
+    .btn-primary svg { opacity: 0; margin-left: -28px; transition: all .15s ease; }
+    .btn-primary:hover svg { opacity: 1; margin-left: 0; }
+
+    .btn-secondary {
+      background: rgb(246, 246, 247);
+      color: rgb(32, 34, 35);
+    }
+    .btn-secondary:hover { background: rgb(241, 242, 243); }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 20px 0;
+      color: rgb(109, 113, 117);
+      font-size: 13px;
+    }
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgb(225, 227, 229);
+    }
+
+    .social-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      background: rgb(246, 246, 247);
+      border-radius: 8px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color .1s ease;
+    }
+    .social-btn:hover { background: rgb(241, 242, 243); }
+    .social-btn svg { width: 20px; height: 20px; }
+
+    .signup {
+      margin-top: 28px;
+      font-size: 14px;
+      color: rgb(32, 34, 35);
+    }
+    .signup a {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      color: rgb(44, 110, 203);
+      font-weight: 500;
+      text-decoration: none;
+      margin-left: 4px;
+    }
+    .signup a:hover { text-decoration: underline; }
+    .signup a svg { transition: transform .1s ease; }
+    .signup a:hover svg { transform: translateX(2px); }
+
+    footer {
+      margin-top: auto;
+      padding: 36px 24px 16px;
+      text-align: center;
+    }
+    .footer-help { margin-bottom: 10px; }
+    .footer-help a {
+      color: rgb(227, 229, 231);
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .footer-help a:hover { text-decoration: underline; }
+    .footer-terms {
+      font-size: 12px;
+      color: rgb(153, 159, 164);
+      line-height: 1.5;
+    }
+    .footer-terms a {
+      color: rgb(227, 229, 231);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .footer-terms a:hover { text-decoration: underline; }
+
+    .hidden-svg { display: none; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <img class="shopify-logo" alt="Shopify"
+        src="https://shopify-assets.shopifycdn.com/shopifycloud/identity/assets/logo/shopify_icon-3ec3196fc21ccd335e623091378b9da827ad0032b2e987dcd2fe6cfc32cd3c5c.svg">
+    </header>
+
+    <div class="card">
+      <h1>Log in</h1>
+      <p class="subheading">Continue to Shopify account</p>
+
+      <form id="account_lookup" novalidate>
+        <div class="field">
+          <label for="account_email">Email</label>
+          <input type="email" id="account_email" name="account[email]" autocomplete="username">
+        </div>
+
+        <button class="btn btn-primary" type="submit">
+          <span>Continue with email</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.49951 10C3.49951 9.58579 3.8353 9.25 4.24951 9.25L13.9391 9.25L11.2192 6.53036C10.9263 6.23748 10.9263 5.7626 11.2192 5.4697C11.512 5.17679 11.9869 5.17676 12.2798 5.46964L16.2802 9.46964C16.4209 9.6103 16.4999 9.80107 16.4999 10C16.4999 10.1989 16.4209 10.3897 16.2802 10.5304L12.2798 14.5304C11.9869 14.8232 11.512 14.8232 11.2192 14.5303C10.9263 14.2374 10.9263 13.7625 11.2192 13.4696L13.9391 10.75L4.24951 10.75C3.8353 10.75 3.49951 10.4142 3.49951 10Z" fill="currentColor"/>
+          </svg>
+        </button>
+      </form>
+
+      <div class="divider">or</div>
+
+      <button class="btn btn-secondary" type="button">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3C7.067 3 5.5 4.567 5.5 6.5C5.5 8.433 7.067 10 9 10C10.933 10 12.5 8.433 12.5 6.5C12.5 4.567 10.933 3 9 3ZM7 6.5C7 5.39543 7.89543 4.5 9 4.5C10.1046 4.5 11 5.39543 11 6.5C11 7.60457 10.1046 8.5 9 8.5C7.89543 8.5 7 7.60457 7 6.5Z" fill="currentColor"/>
+          <path d="M4.82727 14.9552C5.66915 13.4398 7.26644 12.5 8.99999 12.5C9.4142 12.5 9.74999 12.1642 9.74999 11.75C9.74999 11.3358 9.4142 11 8.99999 11C6.72169 11 4.62247 12.2352 3.51603 14.2268L3.07937 15.0128C2.58406 15.9043 3.22875 17 4.24867 17H10.25C10.6642 17 11 16.6642 11 16.25C11 15.8358 10.6642 15.5 10.25 15.5H4.52463L4.82727 14.9552Z" fill="currentColor"/>
+          <path d="M15.125 12.5C15.6082 12.5 16 12.1082 16 11.625C16 11.1418 15.6082 10.75 15.125 10.75C14.6418 10.75 14.25 11.1418 14.25 11.625C14.25 12.1082 14.6418 12.5 15.125 12.5Z" fill="currentColor"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M17.6745 14.8747C18.3217 14.4561 18.75 13.7281 18.75 12.9V11.625C18.75 9.62297 17.127 8 15.125 8C13.123 8 11.5 9.62297 11.5 11.625V12.9C11.5 13.8004 12.0064 14.5826 12.75 14.9772V16.8509C12.75 17.24 12.8635 17.6207 13.0766 17.9462L13.4986 18.591C14.1635 19.6068 15.5727 19.8007 16.4873 19.0023L17.0399 18.5198C17.7394 17.9091 17.9009 16.9369 17.5338 16.1584C17.7228 15.7633 17.7765 15.3088 17.6745 14.8747ZM14.2026 13.9609C14.1351 13.8353 14.0025 13.75 13.85 13.75C13.3806 13.75 13 13.3694 13 12.9V11.625C13 10.4514 13.9514 9.5 15.125 9.5C16.2986 9.5 17.25 10.4514 17.25 11.625V12.9C17.25 13.3694 16.8694 13.75 16.4 13.75H16.1818C15.9938 13.75 15.8301 13.8537 15.7447 14.0071C15.7202 14.051 15.7021 14.0991 15.6918 14.15C15.6853 14.1823 15.6818 14.2158 15.6818 14.25V14.3215C15.6818 14.4106 15.7056 14.4975 15.75 14.5736C15.7632 14.5961 15.7781 14.6177 15.7948 14.6381L16.1262 15.0431C16.1487 15.0706 16.1672 15.0998 16.1818 15.13C16.2004 15.1685 16.2129 15.2087 16.2194 15.2493C16.2497 15.4405 16.15 15.6426 15.9533 15.7227C15.8642 15.759 15.7958 15.8192 15.75 15.8915C15.6613 16.0314 15.657 16.2166 15.75 16.3612C15.7742 16.3988 15.8049 16.4336 15.8424 16.4642L16.0405 16.6256C16.2807 16.8213 16.2869 17.1861 16.0535 17.3898L15.5008 17.8723C15.2722 18.0719 14.9199 18.0234 14.7536 17.7695L14.3316 17.1247C14.2784 17.0434 14.25 16.9482 14.25 16.8509V14.15C14.25 14.0816 14.2328 14.0172 14.2026 13.9609Z" fill="currentColor"/>
+        </svg>
+        <span>Sign in with passkey</span>
+      </button>
+
+      <div style="height: 12px"></div>
+
+      <div class="social-row">
+        <button class="social-btn" type="button" aria-label="Continue with Google">
+          <svg viewBox="0 0 366 372" xmlns="http://www.w3.org/2000/svg">
+            <path d="M125.9 10.2c40.2-13.9 85.3-13.6 125.3 1.1 22.2 8.2 42.5 21 59.9 37.1-5.8 6.3-12.1 12.2-18.1 18.3l-34.2 34.2c-11.3-10.8-25.1-19-40.1-23.6-17.6-5.3-36.6-6.1-54.6-2.2-21 4.5-40.5 15.5-55.6 30.9-12.2 12.3-21.4 27.5-27 43.9-20.3-15.8-40.6-31.5-61-47.3 21.5-43 60.1-76.9 105.4-92.4z" fill="#EA4335"/>
+            <path d="M20.6 102.4c20.3 15.8 40.6 31.5 61 47.3-8 23.3-8 49.2 0 72.4-20.3 15.8-40.6 31.6-60.9 47.3C1.9 232.7-3.8 189.6 4.4 149.2c3.3-16.2 8.7-32 16.2-46.8z" fill="#FBBC05"/>
+            <path d="M361.7 151.1c5.8 32.7 4.5 66.8-4.7 98.8-8.5 29.3-24.6 56.5-47.1 77.2l-59.1-45.9c19.5-13.1 33.3-34.3 37.2-57.5H186.6c.1-24.2.1-48.4.1-72.6h175z" fill="#4285F4"/>
+            <path d="M81.4 222.2c7.8 22.9 22.8 43.2 42.6 57.1 12.4 8.7 26.6 14.9 41.4 17.9 14.6 3 29.7 2.6 44.4.1 14.6-2.6 28.7-7.9 41-16.2l59.1 45.9c-21.3 19.7-48 33.1-76.2 39.6-31.2 7.1-64.2 7.3-95.2-1-24.6-6.5-47.7-18.2-67.6-34.1-20.9-16.6-38.3-38-50.4-62 20.3-15.7 40.6-31.5 60.9-47.3z" fill="#34A853"/>
+          </svg>
+        </button>
+        <button class="social-btn" type="button" aria-label="Continue with Apple">
+          <svg viewBox="0 0 1000 1187.198" xmlns="http://www.w3.org/2000/svg" fill="rgb(32,34,35)">
+            <path d="m 979.04184,925.18785 c -17.95397,41.47737 -39.20563,79.65705 -63.82824,114.75895 -33.56298,47.8528 -61.04356,80.9761 -82.22194,99.3698 -32.83013,30.192 -68.00529,45.6544 -105.67203,46.5338 -27.04089,0 -59.6512,-7.6946 -97.61105,-23.3035 -38.08442,-15.5358 -73.08371,-23.2303 -105.08578,-23.2303 -33.56296,0 -69.55888,7.6945 -108.06101,23.2303 -38.5608,15.6089 -69.62484,23.7432 -93.37541,24.5493 -36.12049,1.5389 -72.1237,-14.3632 -108.06101,-47.7796 -22.93711,-20.0059 -51.62684,-54.3017 -85.99592,-102.8874 C 92.254176,984.54592 61.937588,924.38175 38.187028,855.7902 12.750995,781.70252 0,709.95986 0,640.50361 0,560.94181 17.191859,492.32094 51.626869,434.81688 78.689754,388.62753 114.69299,352.19192 159.75381,325.44413 c 45.06086,-26.74775 93.74914,-40.37812 146.18212,-41.25019 28.68971,0 66.3125,8.8744 113.06613,26.31542 46.62174,17.49964 76.55727,26.37404 89.68198,26.37404 9.8124,0 43.06758,-10.37669 99.4431,-31.06405 53.31237,-19.18512 98.30724,-27.12887 135.16787,-23.99975 99.8828,8.06098 174.92313,47.43518 224.82789,118.37174 -89.33023,54.12578 -133.51903,129.93556 -132.63966,227.18753 0.8061,75.75115 28.28668,138.78795 82.2952,188.8393 24.47603,23.23022 51.81008,41.18421 82.22186,53.93522 -6.59525,19.12648 -13.557,37.44688 -20.95846,55.03446 z M 749.96366,23.751237 c 0,59.37343 -21.69138,114.810233 -64.92748,166.121963 -52.17652,60.99961 -115.28658,96.24803 -183.72426,90.68597 -0.87204,-7.12298 -1.37769,-14.61967 -1.37769,-22.49743 0,-56.99843 24.81315,-117.99801 68.87738,-167.873453 21.99909,-25.25281 49.978,-46.25018 83.90738,-63.00018 C 686.57507,10.688027 718.59913,1.5631274 748.71783,5.2734376e-4 749.59727,7.9378274 749.96366,15.875627 749.96366,23.750467 Z"/>
+          </svg>
+        </button>
+        <button class="social-btn" type="button" aria-label="Continue with Facebook">
+          <svg viewBox="0 0 14222 14222" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#1877F2" d="M14222 7111c0,-3927 -3184,-7111 -7111,-7111 -3927,0 -7111,3184 -7111,7111 0,3549 2600,6491 6000,7025l0 -4969 -1806 0 0 -2056 1806 0 0 -1567c0,-1782 1062,-2767 2686,-2767 778,0 1592,139 1592,139l0 1750 -897 0c-883,0 -1159,548 -1159,1111l0 1334 1972 0 -315 2056 -1657 0 0 4969c3400,-533 6000,-3475 6000,-7025z"/>
+            <path fill="#FEFEFE" d="M9879 9167l315 -2056 -1972 0 0 -1334c0,-562 275,-1111 1159,-1111l897 0 0 -1750c0,0 -814,-139 -1592,-139 -1624,0 -2686,984 -2686,2767l0 1567 -1806 0 0 2056 1806 0 0 4969c362,57 733,86 1111,86 378,0 749,-30 1111,-86l0 -4969 1657 0z"/>
+          </svg>
+        </button>
+        <button class="social-btn" type="button" aria-label="Continue with WhatsApp">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" fill="#25D366" d="M20.463 3.488A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413zM17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          </svg>
+        </button>
+      </div>
+
+      <p class="signup">
+        New to Shopify?
+        <a href="#">
+          Get started
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.49951 10C3.49951 9.58579 3.8353 9.25 4.24951 9.25L13.9391 9.25L11.2192 6.53036C10.9263 6.23748 10.9263 5.7626 11.2192 5.4697C11.512 5.17679 11.9869 5.17676 12.2798 5.46964L16.2802 9.46964C16.4209 9.6103 16.4999 9.80107 16.4999 10C16.4999 10.1989 16.4209 10.3897 16.2802 10.5304L12.2798 14.5304C11.9869 14.8232 11.512 14.8232 11.2192 14.5303C10.9263 14.2374 10.9263 13.7625 11.2192 13.4696L13.9391 10.75L4.24951 10.75C3.8353 10.75 3.49951 10.4142 3.49951 10Z" fill="currentColor"/>
+          </svg>
+        </a>
+      </p>
+    </div>
+
+    <footer>
+      <div class="footer-help">
+        <a href="#">Need Help?</a>
+      </div>
+      <div class="footer-terms">
+        By continuing, you agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>, and to receive marketing emails from Shopify. Unsubscribe anytime.
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
