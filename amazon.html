@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon.in</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#111;display:flex;flex-direction:column;min-height:100vh;align-items:center}
+.logo{width:110px;margin:18px 0 14px}
+.card{width:350px;border:1px solid #ddd;border-radius:8px;padding:22px 26px 26px;margin-bottom:22px}
+.card h1{font-size:28px;font-weight:400;line-height:1.25;margin-bottom:16px}
+.card label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.card input{width:100%;height:33px;border:1px solid #a6a6a6;border-radius:4px;padding:0 8px;font-size:14px;outline:none;box-shadow:0 1px 0 rgba(255,255,255,.5) inset}
+.card input:focus{border-color:#e77600;box-shadow:0 0 3px 2px rgba(228,121,17,.5)}
+.continue{width:100%;height:33px;margin-top:16px;background:#ffd814;border:1px solid #fcd200;border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit}
+.continue:hover{background:#f7ca00}
+.legal{font-size:11.5px;line-height:1.5;color:#111;margin-top:16px}
+.legal a{color:#0066c0;text-decoration:none}
+.legal a:hover{text-decoration:underline;color:#c45500}
+.divider{height:1px;background:#e7e7e7;margin:20px 0 16px}
+.work-title{font-size:13px;font-weight:700;margin-bottom:4px}
+.work-link{font-size:12.5px;color:#0066c0;text-decoration:none}
+.work-link:hover{text-decoration:underline;color:#c45500}
+.footer{width:100%;border-top:1px solid #e7e7e7;padding:26px 0 40px;text-align:center}
+.footer-links{display:flex;justify-content:center;gap:26px;margin-bottom:10px}
+.footer-links a{font-size:11.5px;color:#0066c0;text-decoration:none}
+.footer-links a:hover{text-decoration:underline;color:#c45500}
+.copyright{font-size:11.5px;color:#555}
+@media (max-width:400px){
+  .card{width:100%;border:none;border-radius:0;padding:18px 16px}
+}
+</style>
+</head>
+<body>
+
+<svg class="logo" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <text x="0" y="28" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700" fill="#111">amazon</text>
+  <path d="M4 34c14 6 40 6 54 0" stroke="#FF9900" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+  <path d="M54 34l6-2.2-4.4 5.2z" fill="#FF9900"/>
+</svg>
+
+<div class="card">
+  <h1>Sign in or create<br>account</h1>
+  <label>Enter mobile number or email</label>
+  <input type="text">
+  <button class="continue">Continue</button>
+  <p class="legal">By continuing, you agree to Amazon's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.</p>
+  <div class="divider"></div>
+  <div class="work-title">Buying for work?</div>
+  <a href="#" class="work-link">Create a free business account</a>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#">Conditions of Use</a>
+    <a href="#">Privacy Notice</a>
+    <a href="#">Help</a>
+  </div>
+  <div class="copyright">© 1996-2026, Amazon.com, Inc. or its affiliates</div>
+</div>
+
+</body>
+</html>

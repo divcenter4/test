@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhonePe POS Register</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Inter","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#fff;color:#2c2c2c;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+.header{height:78px;display:flex;align-items:center;padding:0 60px;gap:60px}
+.logo img{height:46px;width:auto}
+.nav{display:flex;gap:54px;font-size:13.5px;font-weight:600;color:#1a1a1a;letter-spacing:.4px;margin-left:100px}
+.nav a:hover{color:#5f259f}
+
+.page{max-width:1320px;margin:0 auto;padding:20px 60px 80px;display:grid;grid-template-columns:1fr 540px;gap:80px;align-items:flex-start}
+
+.breadcrumb{display:flex;align-items:center;gap:10px;font-size:15px;color:#4a4a4a;margin-bottom:28px}
+.breadcrumb svg{width:18px;height:18px;stroke:#4a4a4a;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.breadcrumb .sep{color:#9a9a9a}
+.breadcrumb .current{color:#5f259f;font-weight:500}
+
+h1{font-size:30px;font-weight:700;color:#3b1a63;line-height:1.3;letter-spacing:-.3px;max-width:460px}
+
+.section-title{font-size:16px;font-weight:700;color:#3b1a63;margin-top:38px;margin-bottom:22px}
+
+.field{position:relative;margin-bottom:24px}
+.field input,.field select{width:100%;border:none;border-bottom:1.5px solid #5f259f;background:transparent;padding:0 0 8px;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;appearance:none;border-radius:0;cursor:text}
+.field input::placeholder{color:#9a9a9a;font-size:15px}
+.field select{color:#9a9a9a;cursor:pointer}
+.field .chev{position:absolute;right:4px;bottom:14px;width:16px;height:16px;pointer-events:none}
+.field .chev svg{width:16px;height:16px;stroke:#1a1a1a;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.loc-btn{display:inline-flex;align-items:center;gap:8px;background:#5f259f;color:#fff;border:none;border-radius:4px;padding:13px 22px;font-size:14.5px;font-weight:500;font-family:inherit;cursor:pointer;margin-top:4px}
+.loc-btn:hover{background:#4d1f83}
+
+.proof-label{font-size:15px;color:#4a4a4a;margin-top:32px;margin-bottom:16px}
+.checks{display:flex;flex-wrap:wrap;gap:14px 34px}
+.check{display:flex;align-items:center;gap:10px;font-size:15px;color:#1a1a1a;cursor:pointer;font-weight:400}
+.check input{width:16px;height:16px;margin:0;accent-color:#5f259f;cursor:pointer}
+
+.right-col{position:relative}
+.illustration{background:#d8ecf0;border-radius:8px;overflow:hidden}
+.illustration img{width:100%;height:auto;display:block}
+
+.captcha{margin-top:22px;width:230px;border:1px solid #d6d6d6;border-radius:6px;background:#fafafa;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.captcha-text{display:flex;flex-direction:column;gap:3px}
+.captcha-text .t{font-size:13px;color:#1a1a1a}
+.captcha-text .l{font-size:11px;color:#7a7a7a}
+.captcha-text .l a{color:#7a7a7a;text-decoration:none}
+.captcha-logo{width:42px;height:42px;flex:0 0 auto}
+
+@media (max-width:1200px){
+  .header{padding:0 30px;gap:30px}
+  .nav{gap:34px;margin-left:20px}
+  .page{padding:20px 30px 60px;gap:50px;grid-template-columns:1fr 480px}
+}
+@media (max-width:1000px){
+  .page{grid-template-columns:1fr;gap:40px}
+  .right-col{max-width:600px}
+}
+@media (max-width:700px){
+  .header{height:auto;padding:16px 18px;flex-direction:column;align-items:flex-start;gap:14px}
+  .nav{flex-wrap:wrap;gap:18px;margin-left:0;font-size:12.5px}
+  h1{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a href="#" class="logo">
+    <img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9IjAiIHZpZXdCb3g9IjAgMCAxMzIgNDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZT4uc3Qwe2ZpbGw6IzVmMjU5Zn08L3N0eWxlPjxjaXJjbGUgdHJhbnNmb3JtPSJyb3RhdGUoLTc2LjcxNCAxNy44NyAyNC4wMDEpIiBjbGFzcz0ic3QwIiBjeD0iMTcuOSIgY3k9IjI0IiByPSIxNy45Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTkwLjUgMzQuMnYtNi41YzAtMS42LS42LTIuNC0yLjEtMi40LS42IDAtMS4zLjEtMS43LjJWMzVjMCAuMy0uMy42LS42LjZoLTIuM2MtLjMgMC0uNi0uMy0uNi0uNlYyMy45YzAtLjQuMy0uNy42LS44IDEuNS0uNSAzLS44IDQuNi0uOCAzLjYgMCA1LjYgMS45IDUuNiA1LjR2Ny40YzAgLjMtLjMuNi0uNi42SDkyYy0uOSAwLTEuNS0uNy0xLjUtMS41em05LTMuOWwtLjEuOWMwIDEuMi44IDEuOSAyLjEgMS45IDEgMCAxLjktLjMgMi45LS44LjEgMCAuMi0uMS4zLS4xLjIgMCAuMy4xLjQuMi4xLjEuMy40LjMuNC4yLjMuNC43LjQgMSAwIC41LS4zIDEtLjcgMS4yLTEuMS42LTIuNC45LTMuOC45LTEuNiAwLTIuOS0uNC0zLjktMS4yLTEtLjktMS42LTIuMS0xLjYtMy42di0zLjljMC0zLjEgMi01IDUuNC01IDMuMyAwIDUuMiAxLjggNS4yIDV2Mi40YzAgLjMtLjMuNi0uNi42aC02LjN6bS0uMS0yLjJIMTAzLjJ2LTFjMC0xLjItLjctMi0xLjktMnMtMS45LjctMS45IDJ2MXptMjUuNSAyLjJsLS4xLjljMCAxLjIuOCAxLjkgMi4xIDEuOSAxIDAgMS45LS4zIDIuOS0uOC4xIDAgLjItLjEuMy0uMS4yIDAgLjMuMS40LjIuMS4xLjMuNC4zLjQuMi4zLjQuNy40IDEgMCAuNS0uMyAxLS43IDEuMi0xLjEuNi0yLjQuOS0zLjguOS0xLjYgMC0yLjktLjQtMy45LTEuMi0xLS45LTEuNi0yLjEtMS42LTMuNnYtMy45YzAtMy4xIDItNSA1LjQtNSAzLjMgMCA1LjIgMS44IDUuMiA1djIuNGMwIC4zLS4zLjYtLjYuNmgtNi4zem0tLjEtMi4ySDEyOC42di0xYzAtMS4yLS43LTItMS45LTJzLTEuOS43LTEuOSAydjF6TTY2IDM1LjdoMS40Yy4zIDAgLjYtLjMuNi0uNnYtNy40YzAtMy40LTEuOC01LjQtNC44LTUuNC0uOSAwLTEuOS4yLTIuNS40VjE5YzAtLjgtLjctMS41LTEuNS0xLjVoLTEuNGMtLjMgMC0uNi4zLS42LjZ2MTdjMCAuMy4zLjYuNi42aDIuM2MuMyAwIC42LS4zLjYtLjZ2LTkuNGMuNS0uMiAxLjItLjMgMS43LS4zIDEuNSAwIDIuMS43IDIuMSAyLjR2Ni41Yy4xLjcuNyAxLjQgMS41IDEuNHptMTUuMS04LjRWMzFjMCAzLjEtMi4xIDUtNS42IDUtMy40IDAtNS42LTEuOS01LjYtNVYyMy4zYzAtMy4xIDIuMS01IDUuNi01IDMuNSAwIDUuNiAxLjkgNS42IDV6bS0zLjUgMGMwLTEuMi0uNy0yLTItMnMtMiAuNy0yIDJWMzFjMCAxLjIuNyAxLjkgMiAxLjlzMi0uNyAyLTEuOXYtMy43em0tMjIuMy0xLjdjMCAzLjItMi40IDUuNC01LjYgNS40LS44IDAtMS41LS4xLTIuMi0uNHY0LjVjMCAuMy0uMy42LS42LjZoLTIuM2MtLjMgMC0uNi0uMy0uNi0uNlYxOS4yYzAtLjQuMy0uNy42LS44IDEuNS0uNSAzLS44IDQuNi0uOCAzLjYgMCA2LjEgMi4yIDYuMSA1LjZ2Mi40ek01MS43IDIzYzAtMS42LTEuMS0yLjQtMi42LTIuNC0uOSAwLTEuNS4zLTEuNS4zdjYuNmMuNi4zLjkuNCAxLjYuNCAxLjUgMCAyLjYtLjkgMi42LTIuNFYyM3ptNjguMiAyLjZjMCAzLjItMi40IDUuNC01LjYgNS40LS44IDAtMS41LS4xLTIuMi0uNHY0LjVjMCAuMy0uMy42LS42LjZoLTIuM2MtLjMgMC0uNi0uMy0uNi0uNlYxOS4yYzAtLjQuMy0uNy42LS44IDEuNS0uNSAzLS44IDQuNi0uOCAzLjYgMCA2LjEgMi4yIDYuMSA1LjZ2Mi40em0tMy42LTIuNmMwLTEuNi0xLjEtMi40LTIuNi0yLjQtLjkgMC0xLjUuMy0xLjUuM3Y2LjZjLjYuMy45LjQgMS42LjQgMS41IDAgMi42LS45IDIuNi0yLjRWMjN6Ii8+PHBhdGggZD0iTTI2IDE5LjNjMC0uNy0uNi0xLjMtMS4zLTEuM2gtMi40bC01LjUtNi4zYy0uNS0uNi0xLjMtLjgtMi4xLS42bC0xLjkuNmMtLjMuMS0uNC41LS4yLjdsNiA1LjdIOS41Yy0uMyAwLS41LjItLjUuNXYxYzAgLjcuNiAxLjMgMS4zIDEuM2gxLjR2NC44YzAgMy42IDEuOSA1LjcgNS4xIDUuNyAxIDAgMS44LS4xIDIuOC0uNXYzLjJjMCAuOS43IDEuNiAxLjYgMS42aDEuNGMuMyAwIC42LS4zLjYtLjZWMjAuOGgyLjNjLjMgMCAuNS0uMi41LS41di0xem0tNi40IDguNmMtLjYuMy0xLjQuNC0yIC40LTEuNiAwLTIuNC0uOC0yLjQtMi42di00LjhoNC40djd6IiBmaWxsPSIjZmZmIi8+PC9zdmc+" alt="PhonePe">
+  </a>
+  <nav class="nav">
+    <a href="#">COMPANY</a>
+    <a href="#">OUR SOLUTIONS</a>
+    <a href="#">INVESTOR RELATIONS</a>
+    <a href="#">CONTACT US</a>
+    <a href="#">TRUST &amp; SAFETY</a>
+  </nav>
+</header>
+
+<main class="page">
+
+  <div class="left-col">
+
+    <div class="breadcrumb">
+      <svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 10v10h14V10"/></svg>
+      <span class="sep">/</span>
+      <span>POS Machine</span>
+      <span class="sep">/</span>
+      <span class="current">Register</span>
+    </div>
+
+    <h1>Start accepting payments with PhonePe POS Device</h1>
+
+    <div class="section-title">Business Details</div>
+
+    <div class="field">
+      <input type="text" placeholder="Enter Store/Brand Name*">
+    </div>
+
+    <div class="field">
+      <select>
+        <option>How many stores do you have?*</option>
+        <option>1</option>
+        <option>2-5</option>
+        <option>6-10</option>
+        <option>10+</option>
+      </select>
+      <span class="chev"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+    </div>
+
+    <div class="field">
+      <input type="text" placeholder="Enter Address Line 1*">
+    </div>
+
+    <div class="field">
+      <input type="text" placeholder="Enter Address Line 2*">
+    </div>
+
+    <div class="field">
+      <input type="text" placeholder="Postal Pincode*">
+    </div>
+
+    <div class="field">
+      <input type="text" placeholder="Enter City*">
+    </div>
+
+    <button class="loc-btn">Use Current Location</button>
+
+    <div class="proof-label">Mention the proof of business document available*</div>
+
+    <div class="checks">
+      <label class="check"><input type="checkbox">GST Certificate</label>
+      <label class="check"><input type="checkbox">SEA Certificate</label>
+      <label class="check"><input type="checkbox">Trade License</label>
+      <label class="check"><input type="checkbox">FSSAI</label>
+      <label class="check"><input type="checkbox">Others</label>
+    </div>
+
+    <div class="section-title">Personal Details</div>
+
+    <div class="field">
+      <input type="text" placeholder="Enter First and Last Name*">
+    </div>
+
+  </div>
+
+  <div class="right-col">
+    <div class="illustration">
+      <img src="https://www.phonepe.com/webstatic/14913/static/3e49f3e9393b9df3f71621189571d046/e749e/phonepe_pos_register_desktop.webp" alt="">
+    </div>
+
+    <div class="captcha">
+      <div class="captcha-text">
+        <span class="t">Protected by <b>hCaptcha</b></span>
+        <span class="l"><a href="#">Privacy</a> - <a href="#">Terms</a></span>
+      </div>
+      <svg class="captcha-logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="22" fill="#00838f"/>
+        <path d="M33 14c-2-2-5-3-8-3-6 0-11 4-12 9l-3-3v9h9l-3-3c1-4 4-6 8-6 5 0 8 3 8 7s-3 7-8 7c-3 0-5-1-7-3l-3 3c3 3 6 4 10 4 7 0 12-5 12-11 0-5-2-8-3-10z" fill="#fff" opacity=".95"/>
+        <circle cx="18" cy="20" r="2" fill="#fff"/>
+        <circle cx="30" cy="20" r="2" fill="#fff"/>
+        <path d="M18 30c2 2 5 3 8 2" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>
